@@ -1,0 +1,145 @@
+.body-page {
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/bg.jpg");
+    min-height: 100vh;
+    width: 100%;
+    background-position: bottom;
+    background-size: cover;
+}
+
+/* ----- Navigation menu ----- */
+.topnav {
+    width: 100%;
+    position: fixed;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.topnav__link-brand {
+    float: left;
+    background-color: tomato;
+    padding: 14px 16px;
+    font-size: 17px;
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    display: none;
+
+    &__item {
+        margin: 0;
+        padding: 0;
+        list-style-type: none; 
+    
+       &-link {
+            display: block;
+            padding: 14px 16px;
+            margin: 0;
+            font-size: 17px;
+            color: white;
+            text-decoration: none;
+
+           &:hover {
+               color: tomato;
+               text-decoration: none;
+            }
+
+           &.active {
+                color: tomato;
+                background-color: #ddd;
+            }
+        }
+    }
+
+    &--right {
+        display: none;
+        float: right;
+    }
+}
+
+/* ----- Hamburger ----- */
+.hamburger {
+    background-color: transparent;
+    border: none;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+
+    &__line {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        margin: 6px 0;
+        transition: 0.5s;
+    }
+
+    &:hover {
+        .fa {
+            color: tomato;
+        }
+    }
+}
+
+.hamburger.hamburger-active {
+    .hamburger__line {
+        &:nth-of-type(1) {
+            transform: rotate(-45deg) translate(-9px, 6px);
+        }
+
+        &:nth-of-type(2) {
+            background-color: transparent;
+        }
+
+        &:nth-of-type(3) {
+            transform: rotate(45deg) translate(-8px, -8px);
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .nav-list.open {
+        display: block;
+        width: 100%;
+
+        .nav-list__item-link {
+            width: 100%;
+            float: left;
+            text-align: center;
+        }
+    }
+
+    .hamburger {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .nav-list {
+        display: inline-block;
+
+        &__item {
+            display: inline-block;
+        }
+    }
+}
+
+/* ----- Page header ----- */
+
+
+
+/* ----- Footer ----- */
