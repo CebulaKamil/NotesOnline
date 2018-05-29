@@ -3,18 +3,19 @@
     padding: 0;
     background-image: url("../img/bg.jpg");
     min-height: 100vh;
-    width: 100%;
+    max-width: 100%;
     background-position: bottom;
     background-size: cover;
+    position: relative;
 }
 
 /* ----- Navigation menu ----- */
 .topnav {
     width: 100%;
-    position: fixed;
     background-color: #333;
-    margin: 0;
-    padding: 0;
+    position: relative;
+    top: 0;
+    position: fixed;
 }
 
 .topnav__link-brand {
@@ -139,7 +140,107 @@
 }
 
 /* ----- Page header ----- */
+.main {
+    padding: 20vh 0;
+}
+
+.page-text {
+    max-width: 500px;
+    margin: 0px auto;
+    text-align: center;
+
+    &__header-h1 {
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-size: 50px;
+    }
+
+    &__paragraph {
+        font-size: 20px;
+        color: white;
+        text-shadow: 2px 2px 2px black;
+    }
+
+    &__buton {
+        background-color: transparent;
+        padding: 14px 16px;
+        border-radius: 10px;
+        background-color: rgba($color: tomato, $alpha: 0.6);
+        cursor: pointer;
+        border: none;
+        font-size: 17px;
+        color: white;
+        transition: 0.3s;
+        margin-top: 10vh;
+        letter-spacing: 1px;
+
+        &:hover {
+            background-color: tomato;
+        }
+    }
+}
+
+.modal {
+    position: absolute;
+    top: 0vh;
+    left: -100%;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    height: 100vh;
+    width: 100%;
+    z-index: 9999;
+    color: black;
+    text-align: center;
+
+    .form {
+        max-width: 1000px;
+        height: auto;
+        background-color: white;
+        margin: 10vh auto;
+        border-radius: 10px;
+        padding: 5vh 0vh;
 
 
+        &__input {
+            border: 1px solid black;
+            margin: 5vh auto;
+            display: block;
+            width: 80%;
+            height: 5vh;
+            border-radius: 10px;
+        }        
 
-/* ----- Footer ----- */
+        &__button {
+            border: 1px solid tomato;
+            background-color: rgba($color: tomato, $alpha: 0.6);
+            padding: 14px 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+            font-size: 17px;
+
+            &:hover {
+                background-color: tomato;
+            }
+
+            &--canel {
+                background-color: transparent;
+                border: 1px solid #333;
+                
+
+                &:hover {
+                    background-color: #333;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: #333;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    text-align: center;
+}
