@@ -24,7 +24,7 @@ $(document).ready(function(){
     }
 
 
-// Modal
+// Modal sigin up
     const siginUp = $(".page-text__buton");
     const modal = $(".modal");
     const canel = $(".form__button--canel");
@@ -40,4 +40,20 @@ $(document).ready(function(){
     siginUp[0].addEventListener("click", showModal);
     canel[0].addEventListener("click", hideModal);
 
+
+// // Modal login
+    const login = $(".nav-list__item-link");
+    const loginModal = $(".modal-login");
+    const canelLoginModal = $(".form-login__button--canel");
+
+    const showLoginModal = function() {
+        loginModal.animate({left: '0'});
+    }
+
+    const hideLoginModal = function() {
+        loginModal.animate({left: '-100%'});
+    }
+
+    login[3].addEventListener("click", showLoginModal);
+    canelLoginModal[0].addEventListener("click", hideLoginModal);
 });

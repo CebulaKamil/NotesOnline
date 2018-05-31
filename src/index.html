@@ -1,68 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <title>Notes Online</title>
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="body-page">
-    <div class="modal">
-        <button class="hamburger open" type="button">
-                <div class="hamburger__line"></div>
-                <div class="hamburger__line"></div>
-                <div class="hamburger__line"></div>
-            </button>
-        <form class="form">
-            <h1>Sigin up today and Start using our Online Notes App!</h1>
-            <input class="form__input" type="text" placeholder="Username">
-            <input class="form__input" type="text" placeholder="Email Adress">
-            <input class="form__input" type="password" placeholder="Choose a password">
-            <input class="form__input" type="password" placeholder="Confirm password">
-            <button class="form__button" type="button">Sigin up</button>
-            <button class="form__button form__button--canel">Canel</button>
-        </form>
-    </div>
-    <nav class="topnav">
-       <a href="#" class="topnav__link-brand">Notes Online</a>
-       <ul class="nav-list" id="nav">
-           <li class="nav-list__item">
-               <a class="nav-list__item-link active" href="#">Home</a>
-           </li>
-           <li class="nav-list__item">
-               <a class="nav-list__item-link" href="#">Help</a>
-           </li>
-           <li class="nav-list__item">
-               <a class="nav-list__item-link" href="#">Contact us</a>
-           </li>
-        </ul>
-        <ul class="nav-list nav-list--right">
-            <li class="nav-list__item">
-                <a class="nav-list__item-link" href="#">Login</a>
-            </li>
-        </ul>
-        <button class="hamburger" type="button">
-            <div class="hamburger__line"></div>
-            <div class="hamburger__line"></div>
-            <div class="hamburger__line"></div>
-        </button>
-    </nav>
-    <main class="main">
-        <div class="page-text">
-            <h1 class="page-text__header-h1">Online Notes App</h1>
-            <p class="page-text__paragraph">Your Notes with you wherever you go.</p>
-            <p class="page-text__paragraph">Easy to use, protects all your notes!</p>
-            <button class="page-text__buton" type="button">Sigin up - It's free</button>
-        </div>
-    </main>
-    <footer class="footer">2018</footer>
-    <!-- jQuery -->
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Script -->
-    <script src="js/script.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+
+                <a class="navbar-brand" href="#">Notes Online</a>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+    
+    <!-- Main -->
+    <main class="mainxx">
+    
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+
+            <h1>Notes Online</h1>
+            <p>Your Notes with you wherever you go</p>
+            <p>Easy to use, protect all your notes!</p>
+            <button class="jumbotron__button" type="button">Sigin up - It's free</button>
+
+        </div>
+    
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer"></footer>
+                            
+
 </body>
 </html>
