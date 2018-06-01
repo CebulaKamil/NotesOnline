@@ -1,0 +1,12 @@
+.container-profile {
+    padding-top: 10vh;
+    color: black;
+    background-color: transparent;
+
+    tr{
+        background-color: rgba($color: white, $alpha: 0.5);
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
