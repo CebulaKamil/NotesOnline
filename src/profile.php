@@ -29,7 +29,7 @@
                     <li class="list-item active"><a href="profile.php">Profile</a></li>
                     <li class="list-item"><a href="#">Help</a></li>
                     <li class="list-item"><a href="#">Contact us</a></li>
-                    <li class="list-item"><a href="mynotes.php">My notes</a></li>
+                    <li class="list-item"><a href="my-notes.php">My notes</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#" data-toggle="modal" data-target="#siginUp-modal"><span class="glyphicon glyphicon-user"></span> Logged in as <b>Admin</b></a></li>

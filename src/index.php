@@ -45,6 +45,7 @@
             <p>Easy to use, protect all your notes!</p>
             <button class="jumbotron__button" type="button" data-toggle="modal" data-target="#siginUp-modal">Sigin up - It's free</button>
         </div>
+
         <!-- Sigin in modal -->
         <div class="modal fade" id="siginUp-modal">
             <div class="modal-dialog">
@@ -56,23 +57,24 @@
                     </div> 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <form method="post">
-                            <div class="alert alert-danger"></div>
+                        <form method="post" id="sigin-up-form">
+                            <div id="sigin-up-alert-success"></div>
+                            <div id="sigin-up-alert-danger"></div>
                             <div class="form-group">
                                 <label for="email">Username:</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter username" name="email">
+                                <input type=" " class="form-control" id="sigin-up-username" placeholder="Enter username" name="sigin-up-username" maxlength="30">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                                <input type="email" class="form-control" id="sigin-up-email" placeholder="Enter email" name="sigin-up-email" maxlength="50">
                             </div>
                             <div class="form-group">
                                 <label for="pwd">Password:</label>
-                                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                                <input type="password" class="form-control" id="sigin-up-password" placeholder="Enter password" name="sigin-up-password" maxlength="30">
                             </div>
                             <div class="form-group">
                                 <label for="pwd">Confirm password:</label>
-                                <input type="password" class="form-control" id="pwd" placeholder="Confirm password" name="pswd">
+                                <input type="password" class="form-control" id="sigin-up-password2" placeholder="Confirm password" name="sigin-up-password2" maxlength="30">
                             </div>
                             <button type="submit" class="btn btn-primary">Sigin up</button>
                         </form>
@@ -84,6 +86,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Login modal -->
         <div class="modal fade" id="login-modal">
                 <div class="modal-dialog">
@@ -152,6 +155,7 @@
     <!-- Footer -->
     <footer class="footer"></footer>
     <!-- Script -->
+    <script src="js/index.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

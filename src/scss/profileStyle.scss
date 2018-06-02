@@ -3,8 +3,9 @@
     color: black;
     background-color: transparent;
 
-    tr{
+    tr {
         background-color: rgba($color: white, $alpha: 0.5);
+        
         &:hover {
             cursor: pointer;
         }
