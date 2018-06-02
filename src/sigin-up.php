@@ -85,6 +85,8 @@
         // echo '<div class="alert alert-danger">' . mysqli_error($link) . '</div>';
         exit;
     }
+
+    
     $results = mysqli_num_rows($result);
     if ($results) {
         echo '<div class="alert alert-danger">That email is already registered. Do you want to log in?</div>';

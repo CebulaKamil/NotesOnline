@@ -98,21 +98,21 @@
                         </div> 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <form method="post">
-                                <div class="alert alert-danger"></div>
+                            <form method="post" id="login-form">
+                                <!-- Errors -->
+                                <div id="login-message"></div>
                                 <div class="form-group">
                                     <label for="email">Username:</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter username" name="email">
+                                    <input type="email" class="form-control" id="login-email" placeholder="Enter username" name="login-email">
                                 </div>
                                 <div class="form-group">
                                     <label for="pwd">Password:</label>
-                                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-                                    <div class="form-group form-check">0
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                                        </label>
-                                        <a class="pull-right forgot-link" data-dismiss="modal" data-target="#forgotPassword-modal" data-toggle="modal" >Forgot Password ?</a>
-                                    </div>
+                                    <input type="password" class="form-control" id="login-password" placeholder="Enter password" name="login-password">
+                                </div>
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember-me">
+                                    <label class="form-check-label">Remember me</label>
+                                    <a class="pull-right forgot-link" data-dismiss="modal" data-target="#forgotPassword-modal" data-toggle="modal" >Forgot Password ?</a>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </form>
