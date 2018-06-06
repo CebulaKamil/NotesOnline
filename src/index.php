@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    include('connection.php');
+
+    include('logout.php');
+
+    include('remember.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head> 
