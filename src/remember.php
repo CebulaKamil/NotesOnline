@@ -15,6 +15,8 @@
         $count = mysqli_num_rows($result);
         if ($count !== 1) {
             echo '<div class="alert alert-danger">Remember me process failed!</div>';
+            echo $_SESSION['user_id'];
+            echo $_COOKIE['remember-me'];
             exit;
         }
 
@@ -22,7 +24,6 @@
         if (!hash_equals($row['f2authentificator2'], $f2authentificator2)) {
             echo "<div class='alert alert-danger'>Hash equals returnet false.</div>";
         } else {
-            echo "<div class='alert alert-danger'>asdasdasdnet false.</div>";
             $authentificator1 = bin2hex(openssl_random_pseudo_bytes(10));
             $authentificator2 = openssl_random_pseudo_bytes(20);
 

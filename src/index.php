@@ -5,7 +5,7 @@
 
     include('logout.php');
 
-    include('remember.php');
+    // include('remember.php');
 ?>
 
 <!DOCTYPE html>
@@ -68,11 +68,10 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <form method="post" id="sigin-up-form">
-                            <div id="sigin-up-alert-success"></div>
-                            <div id="sigin-up-alert-danger"></div>
+                            <div id="sigin-up-message"></div>
                             <div class="form-group">
                                 <label for="email">Username:</label>
-                                <input type=" " class="form-control" id="sigin-up-username" placeholder="Enter username" name="sigin-up-username" maxlength="30">
+                                <input type="text" class="form-control" id="sigin-up-username" placeholder="Enter username" name="sigin-up-username" maxlength="30">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
@@ -86,7 +85,8 @@
                                 <label for="pwd">Confirm password:</label>
                                 <input type="password" class="form-control" id="sigin-up-password2" placeholder="Confirm password" name="sigin-up-password2" maxlength="30">
                             </div>
-                            <button type="submit" class="btn btn-primary">Sigin up</button>
+                            <button type="submit" class="btn btn-primary" id="sigin-in-button">Sigin up</button>
+                            <div class="loader" id="sigin-in-loader"></div>
                         </form>
                     </div>
                     <!-- Modal footer -->
@@ -124,7 +124,8 @@
                                     <label class="form-check-label">Remember me</label>
                                     <a class="pull-right forgot-link" data-dismiss="modal" data-target="#forgotPassword-modal" data-toggle="modal" >Forgot Password ?</a>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" class="btn btn-primary" id="login-button">Login</button>
+                                <div class="loader" id="login-loader"></div>
                             </form>
                         </div>
                         <!-- Modal footer -->
@@ -145,13 +146,14 @@
                         </div> 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <form method="post">
-                                <div class="alert alert-danger"></div>
+                            <form method="post" id="forgotPassword-form">
+                                <div id="forgot-message"></div>
                                 <div class="form-group">
                                     <label for="email">Email:</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter username" name="email">
+                                    <input type="email" class="form-control" id="forgot-email" placeholder="Enter username" name="forgot-email">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Send password</button>
+                                <button type="submit" class="btn btn-primary" id="forgot-button">Send password</button>
+                                <div class="loader" id="forgot-loader"></div>
                             </form>
                         </div>
                         <!-- Modal footer -->

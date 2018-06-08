@@ -15,43 +15,41 @@
 
     
     // Check username
-    if(empty($_POST["sigin-up-username"])){
+    if (empty($_POST["sigin-up-username"])) {
         $errors .= $missingUsername;
-    }else{
+    } else {
         $username = filter_var($_POST["sigin-up-username"], FILTER_SANITIZE_STRING);   
     }
 
     // Check email
-    if(empty($_POST["sigin-up-email"])){
+    if (empty($_POST["sigin-up-email"])) {
         $errors .= $missingEmail;   
-    }else{
+    } else {
         $email = filter_var($_POST["sigin-up-email"], FILTER_SANITIZE_EMAIL);
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors .= $invalidEmail;   
         }
     }
 
     // Check password
-    if(empty($_POST["sigin-up-password"])){
+    if (empty($_POST["sigin-up-password"])) {
         $errors .= $missingPassword; 
-    }elseif(!(strlen($_POST["sigin-up-password"])>6
-            and preg_match('/[A-Z]/',$_POST["sigin-up-password"])
-            and preg_match('/[0-9]/',$_POST["sigin-up-password"]))) {
+    } else if (!(strlen($_POST["sigin-up-password"]) > 6 && preg_match('/[A-Z]/',$_POST["sigin-up-password"]) && preg_match('/[0-9]/',$_POST["sigin-up-password"]))) {
         $errors .= $invalidPassword; 
-    }else{
+    } else {
         $password = filter_var($_POST["sigin-up-password"], FILTER_SANITIZE_STRING); 
-        if(empty($_POST["sigin-up-password2"])){
-            $errors .= $missingPassword2;
-        }else{
+        if (empty($_POST["sigin-up-password2"])) {
+          $errors .= $missingPassword2;
+        } else {
             $password2 = filter_var($_POST["sigin-up-password2"], FILTER_SANITIZE_STRING);
-            if($password !== $password2){
+            if ($password !== $password2) {
                 $errors .= $differentPassword;
             }
         }
     }
 
     // Check errors
-    if($errors){
+    if ($errors) {
         $resultMessage = '<div class="alert alert-danger">' . $errors .'</div>';
         echo $resultMessage;
         exit;
@@ -65,7 +63,7 @@
 
     $sql = " SELECT * FROM users WHERE userName = '$username' ";
     $result = mysqli_query($link, $sql);
-    if(!$result) {
+    if (!$result) {
         echo '<div class="alert alert-danger">Error running the query</div>';
         exit;
     }
@@ -78,7 +76,7 @@
 
     $sql = " SELECT * FROM users WHERE userEmail = '$email' ";
     $result = mysqli_query($link, $sql);
-    if(!$result) {
+    if (!$result) {
         echo '<div class="alert alert-danger">Error running the query</div>';
 
         // Debugging
@@ -99,7 +97,7 @@
     // Insert value to database
     $sql = " INSERT INTO users (`userName`, `userEmail`, `userPassword`, `activation`) VALUES ('$username', '$email', '$password', '$activationKey') ";
     $result = mysqli_query($link, $sql);
-    if(!$result){
+    if (!$result) {
         echo '<div class="alert alert-danger">There was an error inserting the users details in the database!</div>'; 
         exit;
     } 
@@ -107,6 +105,6 @@
     // Send activation email
     $message = "Please click on this link to activate your account:\n\n";
     $message .= "http://localhost/NotesOnline2/src/activate.php?email=" . urlencode($email) . "&key=$activationKey";
-    if(mail($email, 'Confirm your Registration', $message, 'From:'.'thekamilc@gmail.com')){
+    if (mail($email, 'Confirm your Registration', $message, 'From:'.'thekamilc@gmail.com')) {
         echo "<div class='alert alert-success'>Thank for your registring! A confirmation email has been sent to $email. Please click on the activation link to activate your account.</div>";
     } 
