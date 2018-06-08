@@ -69,5 +69,7 @@
     <footer class="footer"></footer>
     <!-- Script -->
     <script src="js/script.js"></script>
+    <!-- Ajax -->
+    <script src="js/notes.js"></script>
 </body>
 </html>
