@@ -57,7 +57,7 @@
                        <button class="btn btn-info btn-lg" type="button" id="all-notes">All Notes</button>
                     </div>
                     <div id="notePad">
-                        <textarea class="textarea-notes" placeholder="Place your note" rows="10"></textarea>
+                        <textarea id="textarea-notes" class="textarea-notes" placeholder="Place your note" rows="10"></textarea>
                     </div>
                     <div id="notes" class="notes"> 
                         <!-- Ajax call to a php file -->
