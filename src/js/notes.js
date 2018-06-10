@@ -1,5 +1,8 @@
 $(function() {
 
+    let activeNote = 0;
+    let editMode = false;
+
     const clickOnNotes = function() {
         $(".notes-box").click(function() {
             if(!editMode) {
@@ -19,9 +22,6 @@ $(function() {
             }
         });
     }
-    
-    let activeNote = 0;
-    let editMode = false;
 
     // Loaded notes
     $.ajax({
@@ -29,6 +29,7 @@ $(function() {
         success: function(data) {
             $("#notes").html(data);
             clickOnNotes();
+            clickOnDelete();
         },
         error: function() {
             $("#notes-message").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later!</div>");
@@ -104,6 +105,7 @@ $(function() {
                     "#all-notes"
                 ]);
                 clickOnNotes();
+                clickOnDelete();
             },
             error: function() {
                 $("#notes-message").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later!</div>");
@@ -111,4 +113,49 @@ $(function() {
         });
     });
 
+    $("#edit").click(function() {
+        editMode = true;
+        showHide([
+            "#done",
+            ".note-delete"
+        ], [
+            "#edit"
+        ]);
+
+    });
+
+    const clickOnDelete = function() {
+        $(".note-delete").click(function() {
+
+            const deleteButton = $(this);
+
+            $.ajax({
+                url: "delete-note.php",
+                type: "POST",
+                data: {id: deleteButton.next().attr("id")},
+                success: function(data) {
+                    if(data == "error") {
+                        $("#notes-message").html("<div class='alert alert-danger'>There was an issue delete the note from the database!");
+                    } else {
+                        deleteButton.parent().remove();
+                    }
+                },
+                error: function(){
+                    $("#notes-message").html("There was an error with the Ajax Call. Please try again later.");
+                }
+            });
+        });
+    };
+
+
+    $("#done").click(function() {
+        editMode = false;
+        showHide([
+            "#edit"
+        ], [
+            "#done",
+            ".note-delete"
+        ])
+    })
+    
 });

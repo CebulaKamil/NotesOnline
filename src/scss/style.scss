@@ -90,7 +90,7 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-#all-notes, #done, #notePad {
+#all-notes, #done, #notePad, .note-delete {
     display: none;
 }
 
@@ -100,13 +100,22 @@ body {
     overflow-y: scroll;
 }
 
+.note {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+
 // Notes list
 .notes-box {
     border: 1px solid #222222;
     border-radius: 5px;
-    margin-bottom: 10px;
+    
     cursor: pointer;
     padding: 5px;
+    width: 100%;
     background-color: rgba($color: white, $alpha: 0.7);
 
     &__header {
