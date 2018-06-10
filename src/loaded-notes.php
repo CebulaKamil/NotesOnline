@@ -18,7 +18,7 @@
                 $note_id = $row['id'];
                 $note = $row['notes'];
                 $time = $row['time'];
-                $time = date("F d, Y h:i:s A", $time);
+                $time = date("F d l, Y G:i:s A", $time);
                 
                 echo "
                 <div class='notes-box' id='$note_id'>

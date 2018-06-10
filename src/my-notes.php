@@ -38,7 +38,7 @@
                     <li class="list-item active"><a href="mynotes.php">My notes</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-toggle="modal" data-target="#siginUp-modal"><span class="glyphicon glyphicon-user"></span> Logged in as <b><?php echo ($_SESSION['user_id']) ?></b></a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#siginUp-modal"><span class="glyphicon glyphicon-user"></span> Logged in as <b><?php echo ($_SESSION['userName']) ?></b></a></li>
                     <li><a href="index.php?logout=1"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                 </ul>
             </div>
@@ -49,7 +49,8 @@
        <div class="container container-notes">
            <div class="row">
                <div class="col-md-offset-3 col-md-6">
-                   <div class="container-buttons">
+                    <div id="notes-message"></div>
+                    <div class="container-buttons">
                        <button class="btn btn-info btn-lg" type="button" id="add-notes">Add Note</button>
                        <button class="btn btn-info btn-lg pull-right" type="button" id="edit">Edit</button>
                        <button class="btn btn-success btn-lg pull-right" type="button" id="done">Done</button>
