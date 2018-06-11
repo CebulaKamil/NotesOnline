@@ -55,7 +55,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#" data-toggle="modal" data-target="#siginUp-modal"><span class="glyphicon glyphicon-user"></span> Logged in as <b><?php echo $username ?></b></a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                    <li><a href="index.php?logout=1"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                 </ul>
             </div>
         </div>
@@ -101,7 +101,7 @@
                             <div id="update-username-message"></div>
                             <div class="form-group">
                                 <label for="update-username">Username:</label>
-                                <input type="text" class="form-control" id="update-username-value" value="<?php echo ($_SESSION['userName'])?>" name="update-username-value">
+                                <input type="text" class="form-control" id="update-username-value" value="<?php echo $username?>" name="update-username-value">
                             </div>
                             <button id="update-username-button"type="submit" class="btn btn-primary">Submit</button>
                             <div class="loader" id="update-username-loader"></div>
@@ -126,7 +126,7 @@
                     </div> 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <form method="post">
+                        <form method="post" id="update-email-modal">
                             <div class="update-email-message"></div>
                             <div class="form-group">
                                 <label for="update-email-value">Email:</label>
@@ -154,21 +154,22 @@
                     </div> 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <form method="post">
-                            <div class="alert alert-danger"></div>
+                        <form method="post" id="update-password-form">
+                            <div id="update-password-message"></div>
                             <div class="form-group">
-                                <label for="email">Your Current Password</label>
-                                <input type="email" class="form-control" id="email" placeholder="Password" name="email">
+                                <label for="update-password-current">Your Current Password</label>
+                                <input type="password" class="form-control" id="update-password-current" placeholder="Password" name="update-password-current">
                             </div>
                             <div class="form-group">
-                                <label for="email">Choose new password</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter new password" name="email">
+                                <label for="update-password-new">Choose new password</label>
+                                <input type="password" class="form-control" id="update-password-new" placeholder="Enter new password" name="update-password-new">
                             </div>
                             <div class="form-group">
-                                <label for="email">Confirm new password</label>
-                                <input type="email" class="form-control" id="email" placeholder="Confirm new password" name="email">
+                                <label for="update-password-new-2">Confirm new password</label>
+                                <input type="password" class="form-control" id="update-password-new-2" placeholder="Confirm new password" name="update-password-new-2">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button id="update-password-button" type="submit" class="btn btn-primary">Submit</button>
+                            <div class="loader" id="update-password-loader"></div>
                         </form>
                     </div>
                     <!-- Modal footer -->
