@@ -78,7 +78,7 @@
                             </tr>
                             <tr data-target="#update-password-modal" data-toggle="modal">
                                 <td>Password</td>
-                                <td>Value</td>
+                                <td>Hidden</td>
                             </tr>
                         </table>
                     </div>
@@ -101,7 +101,7 @@
                             <div id="update-username-message"></div>
                             <div class="form-group">
                                 <label for="update-username">Username:</label>
-                                <input type="text" class="form-control" id="update-username-value" value="<?php echo $username?>" name="update-username-value">
+                                <input type="text" class="form-control" id="update-username-value" value="<?php echo $username ?>" name="update-username-value">
                             </div>
                             <button id="update-username-button"type="submit" class="btn btn-primary">Submit</button>
                             <div class="loader" id="update-username-loader"></div>
@@ -126,13 +126,14 @@
                     </div> 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <form method="post" id="update-email-modal">
-                            <div class="update-email-message"></div>
+                        <form method="post" id="update-email-form">
+                            <div id="update-email-message"></div>
                             <div class="form-group">
                                 <label for="update-email-value">Email:</label>
-                                <input type="email" class="form-control" id="update-email-value" value="<?php echo ($_SESSION['userEmail'])?>" name="email">
+                                <input type="email" class="form-control" id="update-email-value" value="<?php echo $email ?>" name="update-email-value">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="update-email-button">Submit</button>
+                            <div class="loader" id="update-email-loader"></div>
                         </form>
                     </div>
                     <!-- Modal footer -->

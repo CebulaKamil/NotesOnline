@@ -4,7 +4,6 @@ $("#update-username-form").submit(function(event) {
     $("#update-username-loader").show();
     $("#update-username-button").hide();
 
-
     $.ajax ({
         url: "update-username.php",
         type: "POST",
@@ -32,7 +31,6 @@ $("#update-password-form").submit(function(event) {
     $("#update-password-loader").show();
     $("#update-password-button").hide();
 
-
     $.ajax ({
         url: "update-password.php",
         type: "POST",
@@ -48,6 +46,31 @@ $("#update-password-form").submit(function(event) {
             $("#update-password-message").html("<div class='alert alert-danger'>There was an error the Ajax Call. Please try again later</div>");
             $("#update-password-loader").hide();
             $("#update-password-button").show();
+        }
+    })
+})
+
+$("#update-email-form").submit(function(event) {
+    event.preventDefault();
+    const dataToPost = $(this).serializeArray();
+    $("#update-email-loader").show();
+    $("#update-email-button").hide();
+
+    $.ajax ({
+        url: "update-email.php",
+        type: "POST",
+        data: dataToPost,
+        success: function(data) {
+            if(data) {
+                $("#update-email-message").html(data);
+                $("#update-email-loader").hide();
+                $("#update-email-button").show();
+            }
+        },
+        error: function() {
+            $("#update-email-message").html("<div class='alert alert-danger'>There was an error the Ajax Call. Please try again later</div>");
+            $("#update-email-loader").hide();
+            $("#update-email-button").show();
         }
     })
 })
