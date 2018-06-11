@@ -18,7 +18,7 @@ $("#sigin-up-form").submit(function(event) {
         },
         error: function() {
             $("#sigin-up-message").html("<div class='alert alert-danger'>There was an error the Ajax Call. Please try again later</div>");
-            $(".loader").hide();
+            $("#sigin-in-loader").hide();
             $("#sigin-in-button").show();
         }
     })

@@ -3,6 +3,46 @@ $(function() {
     let activeNote = 0;
     let editMode = false;
 
+    // Loaded notes
+    $.ajax({
+        url: "loaded-notes.php",
+        success: function(data) {
+            $("#notes").html(data);
+            clickOnNotes();
+            clickOnDelete();
+        },
+        error: function() {
+            $("#notes-message").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later!</div>");
+        }
+    });
+    
+    $("#add-notes").click(function() {
+        $.ajax({
+            url: "create-note.php",
+            success: function(data) {
+                if(data == "error") {
+                    $("#notes-message").html("<div class='alert alert-danger'>There was an issue inserting the new note in the database!</div>");
+                } else {
+                    activeNote = data;
+                    $("textarea").val("");
+                    showHide([
+                        "#notePad",
+                        "#all-notes"
+                    ], [
+                        "#notes",
+                        "#add-notes",
+                        "#edit",
+                        "#done"
+                    ]);
+
+                    $(".textarea-notes").focus();
+                }
+            },
+            error: function() {
+                $("#notes-message").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later!</div>");
+            }
+        });
+    });
     const clickOnNotes = function() {
         $(".notes-box").click(function() {
             if(!editMode) {
@@ -23,18 +63,6 @@ $(function() {
         });
     }
 
-    // Loaded notes
-    $.ajax({
-        url: "loaded-notes.php",
-        success: function(data) {
-            $("#notes").html(data);
-            clickOnNotes();
-            clickOnDelete();
-        },
-        error: function() {
-            $("#notes-message").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later!</div>");
-        }
-    });
 
     // Functions
     const showHide = function(array1, array2) {
@@ -48,32 +76,6 @@ $(function() {
     };
 
 
-    $("#add-notes").click(function() {
-        $.ajax({
-            url: "create-note.php",
-            success: function(data) {
-                if(data == "error") {
-                    $("#notes-message").html("<div class='alert alert-danger'>There was an issue inserting the new note in the database!</div>");
-                } else {
-                    activeNote = data;
-                    showHide([
-                        "#notePad",
-                        "#all-notes"
-                    ], [
-                        "#notes",
-                        "#add-notes",
-                        "#edit",
-                        "#done"
-                    ]);
-
-                    $(".textarea-notes").focus();
-                }
-            },
-            error: function() {
-                $("#notes-message").html("<div class='alert alert-danger'>There was an error with the Ajax Call. Please try again later!</div>");
-            }
-        });
-    });
 
     $("#textarea-notes").keyup(function() {
         $.ajax({

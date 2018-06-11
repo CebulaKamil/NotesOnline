@@ -1,3 +1,25 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['user_id'])) {
+        header("location: index.php");
+    }
+
+    include('connection.php');
+    $user_id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM users WHERE user_id='$user_id'";
+    $result = mysqli_query($link, $sql);
+
+    $count = mysqli_num_rows($result);
+
+    if($count == 1) {
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $username = $row['userName'];
+        $email = $row['userEmail'];
+    } else {
+        echo "There was an error retrieving the username and email from the database!";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -32,7 +54,7 @@
                     <li class="list-item"><a href="my-notes.php">My notes</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-toggle="modal" data-target="#siginUp-modal"><span class="glyphicon glyphicon-user"></span> Logged in as <b>Admin</b></a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#siginUp-modal"><span class="glyphicon glyphicon-user"></span> Logged in as <b><?php echo $username ?></b></a></li>
                     <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                 </ul>
             </div>
@@ -48,11 +70,11 @@
                         <table class="table table-dark table-hover table-condensed table-bordered">
                             <tr data-target="#update-username-modal" data-toggle="modal">
                                 <td>Username</td>
-                                <td>value</td>
+                                <td><?php echo $username?></td>
                             </tr>
                             <tr data-target="#update-email-modal" data-toggle="modal">
                                 <td>Email</td>
-                                <td>Value</td>
+                                <td><?php echo $email?></td>
                             </tr>
                             <tr data-target="#update-password-modal" data-toggle="modal">
                                 <td>Password</td>
@@ -75,13 +97,14 @@
                     </div> 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <form method="post">
-                            <div class="alert alert-danger"></div>
+                        <form method="post" id="update-username-form">
+                            <div id="update-username-message"></div>
                             <div class="form-group">
-                                <label for="email">Username:</label>
-                                <input type="email" class="form-control" id="email" value="Username" name="email">
+                                <label for="update-username">Username:</label>
+                                <input type="text" class="form-control" id="update-username-value" value="<?php echo ($_SESSION['userName'])?>" name="update-username-value">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button id="update-username-button"type="submit" class="btn btn-primary">Submit</button>
+                            <div class="loader" id="update-username-loader"></div>
                         </form>
                     </div>
                     <!-- Modal footer -->
@@ -104,10 +127,10 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <form method="post">
-                            <div class="alert alert-danger"></div>
+                            <div class="update-email-message"></div>
                             <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" value="value@email.com" name="email">
+                                <label for="update-email-value">Email:</label>
+                                <input type="email" class="form-control" id="update-email-value" value="<?php echo ($_SESSION['userEmail'])?>" name="email">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -160,6 +183,6 @@
     <!-- Footer -->
     <footer class="footer"></footer>
     <!-- Script -->
-    <script src="js/script.js"></script>
+    <script src="js/profile.js"></script>
 </body>
 </html>
